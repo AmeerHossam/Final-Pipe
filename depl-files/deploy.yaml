@@ -23,7 +23,7 @@ spec:
       containers:
       - name : my-python-image
         image : sudo1amir/final-code:v1
-      - ports:
+        ports:
         - name: appPort
           containerPort: 8000
 
