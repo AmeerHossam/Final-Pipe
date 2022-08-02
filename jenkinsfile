@@ -1,0 +1,23 @@
+pipeline{
+    agent any
+    stages{
+        stage("CI"){
+            steps{
+                withCredentials([usernamePassword(credentialsId :'DockerHubCred',usernameVariable :'USER',passwordVariable :'PASSWORD')]){
+
+                sh 'docker build -t sudo1amir/final-code:v1 -f ./python-Code/Dockerfile ./python-Code'
+                sh 'echo $PASSWORD | docker login -u $USER --password-stdin'
+                sh 'docker push sudo1amir/final-code:v1'
+                }
+            }
+
+        }
+        stage("CD"){
+
+                steps{
+                    sh 'kubectl apply -Rf ./depl-files -n dev'
+
+            }
+        }
+    }
+}

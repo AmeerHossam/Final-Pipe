@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: visits-app
+  namespace: dev
+  labels:
+    app: backend
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  
+  template:
+    metadata:
+      name: visits
+      labels:
+        app: backend
+
+
+    spec:
+      containers:
+      - name : my-python-image
+        image : sudo1amir/final-code:v1
+      - ports:
+        -name: appPort
+         containerPort: 8000
+
+        
