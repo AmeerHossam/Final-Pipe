@@ -6,7 +6,7 @@ metadata:
         cloud.google.com/load-balancer-type: "External"
   namespace: dev
 spec:
-  type: LoadBalance
+  type: LoadBalancer
   ports:
     - port: 8000
       targetPort: 8000
