@@ -8,7 +8,6 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-RUN export $(cat .env | xargs) && python hello.py
 
 RUN apk --update add redis
 ENV ENVIRONMENT=DEV

@@ -10,7 +10,6 @@ pipeline{
                 sh 'docker push sudo1amir/final-code:v1'
                 }
             }
-
         }
         stage("CD"){
 
